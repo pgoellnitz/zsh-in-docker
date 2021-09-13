@@ -105,16 +105,6 @@ EOM
     printf "\nsource \$ZSH/oh-my-zsh.sh\n"
 }
 
-powerline10k_config() {
-    cat <<EOM
-POWERLEVEL9K_SHORTEN_STRATEGY="truncate_to_last"
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(user dir vcs status)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=()
-POWERLEVEL9K_STATUS_OK=false
-POWERLEVEL9K_STATUS_CROSS=true
-EOM
-}
-
 install_dependencies
 
 cd /tmp
@@ -152,5 +142,4 @@ zshrc_template "$HOME" "$THEME" "$plugin_list" > $HOME/.zshrc
 # Install powerlevel10k if no other theme was specified
 if [ "$THEME" = "powerlevel10k/powerlevel10k" ]; then
     git clone https://github.com/romkatv/powerlevel10k $HOME/.oh-my-zsh/custom/themes/powerlevel10k
-    powerline10k_config >> $HOME/.zshrc
 fi
